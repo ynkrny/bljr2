@@ -1,6 +1,6 @@
 <?php
 
-function is_logged_id()
+function is_logged_in()
 {
     $ci = get_instance();
     if(!$ci->session->userdata('email')) {
@@ -13,7 +13,7 @@ function is_logged_id()
         $menu_id = $queryMenu['id'];
 
         $userAccess = $ci->db->get_where('user_access_menu', 
-        'role_id' => $role_id,
+        ['role_id' => $role_id,
         'menu_id' => $menu_id
         ]);
 
